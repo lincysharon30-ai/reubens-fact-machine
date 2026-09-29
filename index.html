@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>REUBEN'S FACT MACHINE</title>
+ <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="arcadeOverlay"></div>
+    
+
+    <main>
+
+        <p class="eyebrow">
+            REUBEN'S PERSONALIZED:
+        </p>
+
+
+        <!-- ============================= -->
+        <!-- FACT MACHINE LOGO             -->
+        <!-- ============================= -->
+
+        <div class="machineLogo">
+            <span class="logoThe">THE</span>
+            <span class="logoMain">FACT MACHINE</span>
+        </div>
+
+
+        <h1 class="mainTagline">
+            Unnecessarily<br>
+            interesting information.
+        </h1>
+
+        <p class="subtitle">
+            Select your rabbit hole.
+        </p>
+
+
+        <!-- ============================= -->
+        <!-- CATEGORIES                    -->
+        <!-- ============================= -->
+
+        <section class="categoryArea">
+
+            <button
+                class="categoryButton scienceCategory"
+                data-category="SCIENCE"
+            >
+                <img
+                    src="images/science.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>SCIENCE</span>
+            </button>
+
+
+            <button
+                class="categoryButton spaceCategory"
+                data-category="SPACE"
+            >
+                <img
+                    src="images/space.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>SPACE</span>
+            </button>
+
+
+            <button
+                class="categoryButton natureCategory"
+                data-category="NATURE"
+            >
+                <img
+                    src="images/nature.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>NATURE</span>
+            </button>
+
+
+            <button
+                class="categoryButton engineeringCategory"
+                data-category="ENGINEERING"
+            >
+                <img
+                    src="images/engineering.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>ENGINEERING</span>
+            </button>
+
+
+            <button
+                class="categoryButton animalsCategory"
+                data-category="ANIMALS"
+            >
+                <img
+                    src="images/animals.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>ANIMALS</span>
+            </button>
+
+
+            <button
+                class="categoryButton humanBodyCategory"
+                data-category="HUMAN BODY"
+            >
+                <img
+                    src="images/human-body.png"
+                    class="categoryMascot"
+                    alt=""
+                >
+                <span>HUMAN BODY</span>
+            </button>
+
+
+<button class="categoryButton historyCategory" data-category="HISTORY">
+    <img src="images/history.png" class="categoryMascot" alt="">
+    <span>HISTORY</span>
+</button>
+
+<button class="categoryButton weirdCategory" data-category="WEIRD">
+    <img src="images/weird.png" class="categoryMascot" alt="">
+    <span>WEIRD</span>
+</button>
+
+
+            <button
+                class="categoryButton surprise"
+                data-category="ALL"
+            >
+                ✦ SURPRISE ME ✦
+            </button>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- GENERATE FACT                 -->
+        <!-- ============================= -->
+
+        <button id="factButton">
+            GENERATE FACT
+        </button>
+
+
+        <!-- ============================= -->
+        <!-- FACT CARD                     -->
+        <!-- ============================= -->
+
+        <section id="factCard">
+
+            <div class="factMeta">
+                <span id="category">CATEGORY</span>
+                <span id="readTime">20S READ</span>
+            </div>
+
+            <h2 id="factTitle">
+                READY?
+            </h2>
+
+            <p id="factText">
+                Choose a rabbit hole above, then hit generate.
+            </p>
+
+            <button
+                id="readMoreButton"
+                style="display: none;"
+            >
+                READ MORE →
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- DEVELOPER NOTE                -->
+    <!-- ============================= -->
+
+    <section class="developerSection">
+
+        <div class="devDivider"></div>
+
+        <p class="devLabel">
+            &lt; / &gt; DEVELOPER NOTE
+        </p>
+
+        <p class="devWarning">
+            WARNING:<br>
+            developer has no idea what she's doing.<br>
+            somehow, the website works.
+        </p>
+
+        <button id="openDevNote">
+            [ READ MESSAGE → ]
+        </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- BIRTHDAY MESSAGE POPUP        -->
+    <!-- ============================= -->
+
+    <div id="devModal" class="devModal">
+
+        <div class="devWindow">
+
+
+            <!-- WINDOW HEADER -->
+
+            <div class="devWindowTop">
+
+                <span>
+                    ♡ DEV_NOTE.txt
+                </span>
+
+                <button
+                    id="closeDevNote"
+                    class="devClose"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div class="devMessage">
+
+                <p class="devTiny">
+                    PRIVATE FILE // FOR REUBEN ONLY
+                </p>
+
+
+                <!-- MAIN PHOTO -->
+
+                <div class="memoryPhoto mainMemoryPhoto">
+
+                    <img
+                        src="images/us/golden-hour.jpeg"
+                        alt="Lincy and Reuben"
+                    >
+
+                    <span class="photoCaption">
+                        successful_hinge_deployement.jpg 
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    HAPPY BIRTHDAY, REUBEN ♡
+                </h2>
+
+
+                <p>
+                    Okay, jokes aside.
+                </p>
+
+                <p>
+                    I did, somehow, make you an entire website.
+                </p>
+
+                <p>
+                    Considering I started this with approximately
+                    zero idea what I was doing, the fact that you're
+                    currently reading this means things have gone
+                    suspiciously well.
+                </p>
+
+
+                <!-- TWO LITTLE PHOTOS -->
+
+                <div class="photoRow">
+
+
+                    <!-- FUNHOUSE MIRROR PHOTO -->
+
+                    <div class="memoryPhoto polaroid rotateLeft">
+
+                        <img
+                            src="images/us/mirror.jpeg"
+                            alt="Lincy and Reuben in a mirror"
+                        >
+
+                        <span class="photoCaption">
+                            normal_couple_photo.png
+                        </span>
+
+                    </div>
+
+
+                    <!-- PARK PHOTO -->
+
+                    <div class="memoryPhoto polaroid rotateRight">
+
+                        <img
+                            src="images/us/park.jpeg"
+                            alt="Lincy and Reuben at the park"
+                        >
+
+                        <span class="photoCaption">
+                            touching_grass.exe
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- ACTUAL BIRTHDAY MESSAGE       -->
+                <!-- ============================= -->
+
+            <div class="actualBirthdayMessage">
+
+    <p class="messageMarker">
+        // DEVELOPER GETS SERIOUS FOR A SECOND
+    </p>
+
+    <p>
+        Well, I guess you can call me a developer now...
+        considering I've successfully made <em>you</em> develop
+        feelings for me. Hehehe. Dad joke alert. I'm sorry.
+    </p>
+
+    <p>
+        But all jokes aside, these past few months with you have
+        been unimaginably beyond anything I thought a relationship
+        could look like.
+    </p>
+
+    <p>
+        I love how genuine you are with the things you say, and how
+        you somehow know exactly what to say to instantly make me
+        feel better. I love how reassuring you are when things get
+        tough, and, maybe even more importantly, how you're slowly
+        turning me into someone who gives a little less of a shit
+        about what other people think of me — which is a trait I
+        was desperately in need of.
+    </p>
+
+    <p>
+        I spent an awful amount of time putting this whole thing
+        together for you, so I hope you're proud of your newbie
+        coder.
+    </p>
+
+    <p>
+        And yes, I KNOW I fucked up by randomly bringing up what
+        CSS is in Kanji Kadai when you were talking about website
+        designing. In my defence, keeping this a secret while
+        pretending I knew absolutely nothing was HARD. Thankfully,
+        you don't dwell on random shit like I do, so somehow you
+        didn't suspect anything.
+    </p>
+
+    <p>
+        I also deliberately left some of the facts unread —
+        specifically the ones that don't have a little personalised
+        Reuben note in them — because I want to hear about them
+        from you. So technically, there are parts of your own
+        birthday gift that you know more about than I do.
+    </p>
+
+    <p>
+        And I knowwww you're all about <em>functional gifts</em>
+        and yada yada yada, while I'm very much a "look at this
+        cute thing, it reminded me of you, therefore you must have
+        it" person.
+    </p>
+
+    <p>
+        But technically, this website is functional too. It's
+        helping you gain knowledge. So really, I have successfully
+        met your requirements and mine. :)
+    </p>
+
+    <p>
+        Anyways, all jokes aside — properly this time — I genuinely
+        just want you to feel as loved as I can possibly make you
+        feel. This website, and everything else I've put together
+        for you, is just a teensy little token of that.
+    </p>
+
+    <p>
+        I hope we keep growing with each other, learning each other,
+        influencing each other in all the best ways, and collecting
+        a ridiculous number of little memories along the way.
+    </p>
+
+    <p class="birthdayEnding">
+        Happy birthday, Reuben. ♡
+    </p>
+
+    <p class="emotionalQuota">
+        [ EMOTIONAL VULNERABILITY QUOTA REACHED — CLOSING FILE ]
+    </p>
+
+</div>
+
+                <!-- FINAL MIRROR PHOTO -->
+
+                <div class="memoryPhoto finalMemoryPhoto">
+
+                    <img
+                        src="images/us/decathlon.jpeg"
+                        alt="Lincy and Reuben taking a mirror picture"
+                    >
+
+                    <span class="photoCaption">
+                        proof_we_need_more_mirror_pics.jpg
+                    </span>
+
+                </div>
+
+
+                <!-- ACHIEVEMENT -->
+
+                <div class="achievementBox">
+
+                    <p>
+                        STATUS:
+                    </p>
+
+                    <strong>
+                        BOYFRIEND SUCCESSFULLY LEVELLED UP +1 YEAR
+                    </strong>
+
+                    <p>
+                        ACHIEVEMENT UNLOCKED:
+                    </p>
+
+                    <strong>
+                        SURVIVED ANOTHER YEAR
+                    </strong>
+
+                </div>
+
+
+                <!-- SIGN OFF -->
+
+                <p class="devSignoff">
+                    ♡ PLAYER TWO: LINCY
+                </p>
+
+                <p class="devPS">
+                    P.S. your actual gift is me, obviously.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- SCRIPTS                       -->
+    <!-- ============================= -->
+
+    <script src="facts.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

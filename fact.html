@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fact | Reuben's Fact Machine</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fact.css">
+</head>
+
+<body>
+   <div id="factDomainOverlay" class="factDomainOverlay"></div> 
+
+    <main class="factPage">
+
+        <a href="index.html" class="backButton">
+            ← BACK TO FACT MACHINE
+        </a>
+
+        <article class="fullFact">
+
+            <div class="fullFactMeta">
+                <span id="fullCategory">CATEGORY</span>
+                <span id="fullReadTime">READ TIME</span>
+            </div>
+
+            <h1 id="fullTitle">
+                LOADING FACT...
+            </h1>
+
+            <p class="intro" id="fullIntro"></p>
+
+            <img
+                id="heroImage"
+                class="heroImage"
+                src=""
+                alt=""
+            >
+
+            <div id="articleContent"></div>
+
+            <div class="source" id="factSource"></div>
+
+        </article>
+
+    </main>
+<!-- KNOWLEDGE POWER-UP -->
+
+<div id="powerUp" class="powerUp">
+
+    <div class="powerUpBox">
+
+        <div class="powerIcon">⚡</div>
+
+        <p class="powerLabel">KNOWLEDGE +1</p>
+
+        <div class="battery">
+            <div id="batteryFill" class="batteryFill"></div>
+        </div>
+
+        <p id="knowledgeCount" class="knowledgeCount">
+            01 / 30
+        </p>
+
+        <h2>YOU ARE NOW<br>ONE FACT SMARTER.</h2>
+
+    </div>
+
+</div>
+    <script src="facts.js"></script>
+<script src="fact.js"></script>
+
+</body>
+
+</html>

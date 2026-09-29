@@ -1,0 +1,433 @@
+:root {
+    --neon-purple: #b026ff;
+    --neon-cyan: #00f7ff;
+    --neon-green: #39ff14;
+    --dark: #0d0d0d;
+    --card: #141414;
+    --text: #f2f2f2;
+    --muted: #b8b8b8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(0, 247, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(176, 38, 255, 0.10), transparent 30%),
+        var(--dark);
+
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    min-height: 100vh;
+}
+
+.factPage {
+    width: min(900px, calc(100% - 40px));
+    margin: auto;
+    padding: 50px 0 100px;
+}
+
+/* BACK BUTTON */
+
+.backButton {
+    display: inline-block;
+
+    color: var(--neon-cyan);
+    text-decoration: none;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    margin-bottom: 50px;
+
+    transition: 0.15s;
+}
+
+.backButton:hover {
+    color: var(--neon-purple);
+    transform: translateX(-4px);
+}
+
+
+/* MAIN ARTICLE */
+
+.fullFact {
+    background: rgba(20, 20, 20, 0.92);
+
+    border: 1px solid #333;
+    border-radius: 14px;
+
+    padding: 55px;
+
+    box-shadow:
+        0 0 40px rgba(0, 247, 255, 0.06),
+        0 0 80px rgba(176, 38, 255, 0.05);
+}
+
+
+/* CATEGORY + READ TIME */
+
+.fullFactMeta {
+    display: flex;
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.fullFactMeta span:first-child {
+    color: var(--neon-purple);
+}
+
+.fullFactMeta span:last-child {
+    color: var(--neon-cyan);
+}
+
+
+/* TITLE */
+
+.fullFact h1 {
+    margin: 0;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 0.98;
+
+    letter-spacing: 1px;
+
+    max-width: 850px;
+}
+
+
+/* INTRO */
+
+.intro {
+    margin: 35px 0 45px;
+
+    max-width: 760px;
+
+    font-size: 21px;
+    line-height: 1.65;
+
+    color: #c9c9c9;
+}
+
+
+/* HERO IMAGE */
+
+.heroImage {
+    display: block;
+
+    width: 100%;
+    max-height: 520px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border: 1px solid #333;
+
+    margin-bottom: 60px;
+
+    box-shadow:
+        0 0 30px rgba(0, 247, 255, 0.08);
+}
+
+
+/* SECTIONS */
+
+.factSection {
+    max-width: 720px;
+
+    margin: 0 auto 55px;
+}
+
+.factSection h2 {
+    margin: 0 0 18px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+
+    color: var(--neon-cyan);
+}
+
+.factSection p {
+    margin: 0 0 22px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+
+    color: var(--muted);
+}
+
+.factSection strong {
+    color: white;
+}
+
+
+/* SOURCE */
+
+.source {
+    margin-top: 70px;
+    padding-top: 25px;
+
+    border-top: 1px solid #292929;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .factPage {
+        width: min(100% - 24px, 900px);
+        padding-top: 25px;
+    }
+
+    .fullFact {
+        padding: 30px 22px;
+    }
+
+    .backButton {
+        margin-bottom: 30px;
+    }
+
+    .fullFact h1 {
+        font-size: 38px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+
+    .factSection p {
+        font-size: 17px;
+    }
+} body,
+.intro,
+.factSection p {
+    font-family: "Space Grotesk", sans-serif;
+}
+/* ------------------------------ */
+/* KNOWLEDGE POWER UP             */
+/* ------------------------------ */
+
+.powerUp {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(5, 5, 10, 0.82);
+    backdrop-filter: blur(7px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 1000;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.powerUp.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.powerUpBox {
+    position: relative;
+
+    width: min(430px, 100%);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: #0d0d13;
+
+    border: 2px solid #00f7ff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        6px 6px 0 #b026ff,
+        0 0 35px rgba(0, 247, 255, 0.25);
+
+    transform: scale(0.7);
+
+    transition:
+        transform 0.35s cubic-bezier(.17,.89,.32,1.4);
+}
+
+
+.powerUp.show .powerUpBox {
+    transform: scale(1);
+}
+
+
+.powerIcon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+    animation: powerBounce 0.7s infinite alternate;
+}
+
+
+@keyframes powerBounce {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+.powerLabel {
+    margin: 0 0 25px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 17px;
+
+    letter-spacing: 3px;
+
+    color: #39ff14;
+
+    text-shadow:
+        0 0 12px rgba(57, 255, 20, 0.5);
+}
+
+
+/* BATTERY */
+
+.battery {
+    position: relative;
+
+    width: 250px;
+    max-width: 85%;
+
+    height: 38px;
+
+    margin: 0 auto 14px;
+
+    padding: 5px;
+
+    border: 3px solid white;
+
+    border-radius: 4px;
+}
+
+
+.battery::after {
+    content: "";
+
+    position: absolute;
+
+    right: -10px;
+    top: 9px;
+
+    width: 7px;
+    height: 14px;
+
+    background: white;
+
+    border-radius: 0 2px 2px 0;
+}
+
+
+.batteryFill {
+    width: 0%;
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #39ff14 0,
+            #39ff14 12px,
+            transparent 12px,
+            transparent 15px
+        );
+
+    transition: width 0.8s ease;
+
+    filter:
+        drop-shadow(0 0 6px rgba(57,255,20,0.8));
+}
+
+
+.knowledgeCount {
+    margin: 0 0 28px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    color: #8f8f9b;
+}
+
+
+.powerUpBox h2 {
+    margin: 0;
+
+    font-family: "Pixelify Sans", sans-serif;
+
+    font-size: 28px;
+    line-height: 1.1;
+
+    color: white;
+}
+/* ============================= */
+/* FACT DOMAIN OVERLAY           */
+/* ============================= */
+
+.factDomainOverlay {
+    position: fixed;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    opacity: 1;
+
+    z-index: 0;
+}
+
+/* KEEP FACT CONTENT ABOVE OVERLAY */
+
+.factPage,
+.factContainer,
+main {
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,1332 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --purple: #b026ff;
+    --cyan: #00f7ff;
+    --green: #39ff14;
+    --pink: #ff2bd6;
+
+    --black: #07070a;
+    --panel: #101017;
+    --panel2: #15151e;
+    --white: #f5f5f5;
+    --grey: #9696a3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(176, 38, 255, 0.14),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(0, 247, 255, 0.10),
+            transparent 30%
+        ),
+        var(--black);
+
+    color: var(--white);
+    font-family: "Space Grotesk", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* subtle digital grid */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* main container */
+
+main {
+    width: min(920px, calc(100% - 40px));
+    margin: auto;
+    padding: 75px 0 100px;
+}
+
+
+/* top label */
+
+.eyebrow {
+    margin: 0 0 18px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 8px rgba(0,247,255,0.5);
+}
+
+
+/* main heading */
+
+h1 {
+    margin: 0;
+
+    max-width: 700px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -1px;
+
+    color: white;
+
+    text-shadow:
+        3px 3px 0 rgba(176,38,255,0.35);
+}
+
+
+/* subtitle */
+
+.subtitle {
+    margin: 18px 0 45px;
+
+    font-size: 18px;
+    color: var(--grey);
+}
+
+
+/* CATEGORY AREA */
+
+.categoryArea {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    max-width: 780px;
+
+    margin: 0 auto 28px;
+}
+
+
+/* category buttons */
+
+.categoryButton {
+    position: relative;
+
+    min-height: 58px;
+
+    padding: 12px 10px;
+
+    background: var(--panel);
+
+    border: 1px solid #30303b;
+    border-radius: 5px;
+
+    color: #d7d7df;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* tiny retro corner */
+
+.categoryButton::after {
+    content: "›";
+
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+
+    font-family: "Pixelify Sans", sans-serif;
+
+    color: #393944;
+
+    transition: color 0.15s ease;
+}
+
+
+.categoryButton:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--cyan);
+
+    color: white;
+
+    background: #111923;
+
+    box-shadow:
+        0 0 12px rgba(0,247,255,0.18),
+        3px 3px 0 rgba(176,38,255,0.45);
+}
+
+
+.categoryButton:hover::after {
+    color: var(--cyan);
+}
+
+
+/* selected category */
+
+.categoryButton.selected {
+    background: rgba(176,38,255,0.12);
+
+    border-color: var(--purple);
+
+    color: white;
+
+    box-shadow:
+        0 0 16px rgba(176,38,255,0.22),
+        3px 3px 0 var(--cyan);
+}
+
+
+/* surprise button */
+
+.categoryButton.surprise {
+    grid-column: 1 / -1;
+
+    min-height: 62px;
+
+    border-color: #41414d;
+
+    color: var(--green);
+
+    letter-spacing: 2px;
+}
+
+
+.categoryButton.surprise:hover {
+    border-color: var(--green);
+
+    background: rgba(57,255,20,0.06);
+
+    color: var(--green);
+
+    box-shadow:
+        0 0 18px rgba(57,255,20,0.18),
+        3px 3px 0 var(--purple);
+}
+
+
+/* GENERATE FACT */
+
+#factButton {
+    display: block;
+
+    margin: 35px auto 50px;
+
+    padding: 17px 38px;
+
+    background: var(--purple);
+
+    border: none;
+    border-radius: 4px;
+
+    color: white;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 5px 0 var(--cyan),
+        0 0 25px rgba(176,38,255,0.25);
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease;
+}
+
+
+#factButton:hover {
+    background: #c13cff;
+
+    transform: translate(2px, 2px);
+
+    box-shadow:
+        3px 3px 0 var(--cyan),
+        0 0 30px rgba(176,38,255,0.35);
+}
+
+
+#factButton:active {
+    transform: translate(5px, 5px);
+
+    box-shadow:
+        0 0 10px rgba(176,38,255,0.3);
+}
+
+
+/* FACT CARD */
+
+#factCard {
+    position: relative;
+
+    padding: 42px 45px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01)
+        ),
+        var(--panel);
+
+    border: 1px solid #292934;
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,0.45);
+
+    overflow: hidden;
+}
+
+
+/* neon line on top */
+
+#factCard::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--cyan),
+            transparent
+        );
+}
+
+
+/* metadata */
+
+.factMeta {
+    display: flex;
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+.factMeta span:first-child {
+    color: var(--purple);
+}
+
+
+.factMeta span:last-child {
+    color: var(--cyan);
+}
+
+
+/* fact title */
+
+#factTitle {
+    margin: 0 0 20px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(28px, 5vw, 43px);
+    line-height: 1.05;
+
+    color: white;
+}
+
+
+/* fact preview */
+
+#factText {
+    max-width: 720px;
+
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #b9b9c3;
+}
+
+
+/* READ MORE */
+
+#readMoreButton {
+    margin-top: 32px;
+
+    padding: 10px 0;
+
+    background: none;
+
+    border: none;
+
+    color: var(--cyan);
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+#readMoreButton:hover {
+    color: var(--purple);
+
+    transform: translateX(5px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    main {
+        width: min(100% - 24px, 920px);
+        padding-top: 45px;
+    }
+
+    .categoryArea {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categoryButton.surprise {
+        grid-column: 1 / -1;
+    }
+
+    #factCard {
+        padding: 32px 25px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .categoryButton {
+        min-height: 54px;
+        font-size: 12px;
+    }
+
+    #factButton {
+        width: 100%;
+    }
+
+    #factCard {
+        padding: 28px 20px;
+    }
+} #factTitle {
+    letter-spacing: 1px;
+}
+/* CATEGORY MASCOTS */
+
+.categoryButton.scienceCategory,
+.categoryButton.spaceCategory,
+.categoryButton.natureCategory,
+.categoryButton.engineeringCategory,
+.categoryButton.animalsCategory,
+.categoryButton.humanBodyCategory,
+.categoryButton.historyCategory,
+.categoryButton.weirdCategory {
+    min-height: 120px;
+    padding: 78px 10px 12px;
+}
+
+.categoryMascot {
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    image-rendering: pixelated;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.categoryButton:hover .categoryMascot {
+    transform: translateX(-50%) translateY(-5px) scale(1.08);
+
+    filter:
+        drop-shadow(0 0 7px rgba(176, 38, 255, 0.8))
+        drop-shadow(0 0 12px rgba(0, 247, 255, 0.4));
+}
+/* ============================= */
+/* FACT MACHINE ARCADE LOGO      */
+/* ============================= */
+
+.machineLogo {
+    position: relative;
+    width: fit-content;
+    margin: 18px 0 30px;
+    padding: 14px 28px 17px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151527,
+            #090911
+        );
+
+    border: 3px solid #b026ff;
+    border-radius: 5px;
+
+    box-shadow:
+        0 0 0 3px #00f7ff,
+        0 0 20px rgba(0, 247, 255, 0.45),
+        0 0 40px rgba(176, 38, 255, 0.35),
+        7px 7px 0 #541276;
+
+    transform: rotate(-1deg);
+}
+
+.machineLogo::before,
+.machineLogo::after {
+    content: "✦";
+    position: absolute;
+
+    top: 50%;
+
+    color: #39ff14;
+    font-size: 18px;
+
+    text-shadow:
+        0 0 8px #39ff14;
+}
+
+.machineLogo::before {
+    left: -25px;
+}
+
+.machineLogo::after {
+    right: -25px;
+}
+
+.logoThe {
+    display: block;
+
+    margin-bottom: -5px;
+
+    font-size: 18px;
+    letter-spacing: 5px;
+
+    color: #ff8cff;
+
+    text-shadow:
+        2px 2px 0 #5c147a;
+}
+
+.logoMain {
+    display: block;
+
+    font-size: clamp(34px, 6vw, 60px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 2px;
+
+    color: white;
+
+    -webkit-text-stroke: 2px #00f7ff;
+
+    text-shadow:
+        3px 3px 0 #b026ff,
+        6px 6px 0 #541276,
+        0 0 12px rgba(0, 247, 255, 0.8),
+        0 0 24px rgba(176, 38, 255, 0.6);
+}
+
+.mainTagline {
+    margin-top: 25px;
+    font-size: clamp(30px, 5vw, 48px);
+}
+.machineLogo {
+    margin-left: auto;
+    margin-right: auto;
+}
+.mainTagline,
+.subtitle,
+.eyebrow {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* MASCOT CATEGORY LABELS */
+
+.categoryButton.scienceCategory span,
+.categoryButton.spaceCategory span,
+.categoryButton.natureCategory span,
+.categoryButton.engineeringCategory span,
+.categoryButton.animalsCategory span,
+.categoryButton.humanBodyCategory span,
+.categoryButton.historyCategory span,
+.categoryButton.weirdCategory span {
+    display: block;
+    position: relative;
+    z-index: 2;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: inherit;
+}
+
+.categoryMascot {
+    top: 5px;
+    width: 72px;
+    height: 72px;
+}
+/* ============================= */
+/* ARCADE SCREEN OVERLAY         */
+/* ============================= */
+
+.arcadeOverlay {
+    position: fixed;
+    inset: 0;
+
+    background-image: url("images/arcade/arcade-overlay.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+/* ============================= */
+/* DEVELOPER NOTE                */
+/* ============================= */
+
+.developerSection {
+    width: min(700px, calc(100% - 40px));
+    margin: 10px auto 80px;
+    text-align: center;
+}
+
+.devDivider {
+    height: 1px;
+    margin-bottom: 35px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b026ff,
+        #00f7ff,
+        transparent
+    );
+
+    opacity: 0.7;
+}
+
+.devLabel {
+    margin-bottom: 18px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+
+    color: #00f7ff;
+
+    text-shadow:
+        0 0 8px rgba(0, 247, 255, 0.5);
+}
+
+.devWarning {
+    margin-bottom: 25px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+
+    color: #777784;
+}
+
+#openDevNote {
+    padding: 12px 20px;
+
+    background: transparent;
+
+    border: 1px solid #b026ff;
+    border-radius: 4px;
+
+    color: #ff8cff;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        color 0.15s ease;
+}
+
+#openDevNote:hover {
+    transform: translateY(-2px);
+
+    color: white;
+
+    box-shadow:
+        0 0 15px rgba(176, 38, 255, 0.35),
+        3px 3px 0 #00f7ff;
+}
+
+
+/* ============================= */
+/* DEV NOTE POPUP                */
+/* ============================= */
+
+.devModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: rgba(3, 3, 8, 0.88);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 9999;
+}
+
+.devModal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.devWindow {
+    width: min(680px, 100%);
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(176, 38, 255, 0.08),
+            transparent 35%
+        ),
+        #101017;
+
+    border: 2px solid #b026ff;
+    border-radius: 7px;
+
+    box-shadow:
+        0 0 0 2px #00f7ff,
+        0 0 35px rgba(176, 38, 255, 0.35);
+}
+
+
+/* fake computer window */
+
+.devWindowTop {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 15px;
+
+    background: #171720;
+
+    border-bottom: 1px solid #343440;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    color: #00f7ff;
+
+    z-index: 2;
+}
+
+.devClose {
+    background: none;
+    border: none;
+
+    color: #ff8cff;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* actual message */
+
+.devMessage {
+    padding: 45px 50px 50px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+
+    color: #c7c7d0;
+}
+
+.devMessage h2 {
+    margin: 30px 0 25px;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 30px;
+
+    color: white;
+
+    text-shadow:
+        2px 2px 0 #b026ff;
+}
+
+.devTiny {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #39ff14;
+}
+
+
+/* PLACEHOLDER PHOTOS */
+
+.placeholderPhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 190px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #181824,
+            #242435
+        );
+
+    border: 1px dashed #565666;
+
+    color: #686878;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.mainPhoto {
+    width: min(390px, 100%);
+    margin: auto;
+
+    min-height: 240px;
+
+    border: 7px solid white;
+
+    box-shadow:
+        6px 6px 0 rgba(176, 38, 255, 0.55);
+
+    transform: rotate(-1deg);
+}
+
+
+/* POLAROIDS */
+
+.photoRow {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    margin: 45px 0;
+}
+
+.polaroid {
+    width: 190px;
+
+    padding: 8px 8px 4px;
+
+    background: #f5f5f5;
+
+    box-shadow:
+        5px 6px 0 rgba(0, 247, 255, 0.25);
+}
+
+.polaroid .placeholderPhoto {
+    min-height: 170px;
+}
+
+.polaroid p {
+    margin: 8px 0 4px;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 12px;
+
+    color: #17171d;
+}
+
+.rotateLeft {
+    transform: rotate(-4deg);
+}
+
+.rotateRight {
+    transform: rotate(4deg);
+}
+
+
+/* ACHIEVEMENT */
+
+.achievementBox {
+    margin: 45px 0 35px;
+    padding: 24px;
+
+    text-align: center;
+
+    background: rgba(57, 255, 20, 0.035);
+
+    border: 1px solid #39ff14;
+
+    box-shadow:
+        4px 4px 0 rgba(176, 38, 255, 0.5);
+}
+
+.achievementBox p {
+    margin: 10px 0 5px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #39ff14;
+}
+
+.achievementBox strong {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+
+    color: white;
+}
+
+.devSignoff {
+    margin-top: 40px;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+
+    color: #ff8cff;
+}
+
+.devPS {
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+
+    color: #92929e;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .devMessage {
+        padding: 35px 22px 40px;
+    }
+
+    .photoRow {
+        gap: 15px;
+    }
+
+    .polaroid {
+        width: 45%;
+    }
+
+    .polaroid .placeholderPhoto {
+        min-height: 125px;
+    }
+
+}
+/* FIX SECOND ROW MASCOT SIZING */
+
+.animalsCategory .categoryMascot,
+.humanBodyCategory .categoryMascot {
+    width: 68px;
+    height: 68px;
+    top: 7px;
+}
+/* ============================= */
+/* REAL DEV NOTE PHOTOS          */
+/* ============================= */
+
+.memoryPhoto {
+    overflow: hidden;
+
+    background: #f5f5f5;
+
+    padding: 8px 8px 12px;
+
+    box-shadow:
+        5px 6px 0 rgba(0, 247, 255, 0.25);
+}
+
+.memoryPhoto img {
+    display: block;
+
+    width: 100%;
+
+    object-fit: cover;
+}
+
+
+/* MAIN OPENING PHOTO */
+
+.mainMemoryPhoto {
+    width: min(430px, 100%);
+
+    margin:
+        0 auto 38px;
+
+    transform: rotate(-1.5deg);
+
+    box-shadow:
+        7px 7px 0 rgba(176, 38, 255, 0.55);
+}
+
+.mainMemoryPhoto img {
+    height: 280px;
+
+    object-position: center;
+}
+
+
+/* PHOTO CAPTIONS */
+
+.photoCaption {
+    display: block;
+
+    padding:
+        10px 4px 2px;
+
+    text-align: center;
+
+    font-family:
+        "Pixelify Sans",
+        sans-serif;
+
+    font-size: 12px;
+
+    color: #18181f;
+}
+
+
+/* TWO SMALL POLAROIDS */
+
+.photoRow {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    margin:
+        50px 0;
+}
+
+.photoRow .polaroid {
+    width: 210px;
+
+    padding:
+        8px 8px 10px;
+}
+
+.photoRow .polaroid img {
+    height: 220px;
+}
+
+
+/* MIRROR PHOTO */
+
+.finalMemoryPhoto {
+    width: min(340px, 85%);
+
+    margin:
+        50px auto;
+
+    transform: rotate(2deg);
+
+    box-shadow:
+        -6px 6px 0 rgba(255, 43, 214, 0.3);
+}
+
+.finalMemoryPhoto img {
+    height: 360px;
+
+    object-position: center;
+}
+
+
+/* HEARTFELT SECTION */
+
+.actualBirthdayMessage {
+    position: relative;
+
+    margin:
+        55px 0;
+
+    padding:
+        30px 28px;
+
+    background:
+        rgba(176, 38, 255, 0.055);
+
+    border-left:
+        2px solid #ff8cff;
+}
+
+.messageMarker {
+    margin:
+        0 0 22px !important;
+
+    font-family:
+        "Pixelify Sans",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #ff8cff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .mainMemoryPhoto img {
+        height: 220px;
+    }
+
+    .photoRow {
+        gap: 14px;
+    }
+
+    .photoRow .polaroid {
+        width: 47%;
+    }
+
+    .photoRow .polaroid img {
+        height: 160px;
+    }
+
+    .photoCaption {
+        font-size: 10px;
+    }
+
+    .finalMemoryPhoto img {
+        height: 300px;
+    }
+
+    .actualBirthdayMessage {
+        padding:
+            25px 20px;
+    }
+}
+.photoRow .rotateLeft img {
+    height: 250px;
+    object-position: center 25%;
+}
+/* KEEP OUR HEADS IN THE FUNHOUSE MIRROR PHOTO */
+
+.photoRow .rotateLeft img {
+    height: 250px;
+    object-position: center 20%;
+}
+/* MAKE TOUCHING GRASS PHOTO WIDER */
+
+.photoRow .rotateRight {
+    width: 270px;
+}
+
+.photoRow .rotateRight img {
+    height: 180px;
+    object-position: center;
+}
+
+/* ============================= */
+/* FINAL CATEGORY ALIGNMENT      */
+/* ============================= */
+
+/* Keep all category labels on the same baseline */
+.categoryButton.scienceCategory span,
+.categoryButton.spaceCategory span,
+.categoryButton.natureCategory span,
+.categoryButton.engineeringCategory span,
+.categoryButton.animalsCategory span,
+.categoryButton.humanBodyCategory span,
+.categoryButton.historyCategory span,
+.categoryButton.weirdCategory span {
+    display: block;
+    position: relative;
+    z-index: 2;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: inherit;
+}
+
+/* Match the second-row mascot sizing */
+.animalsCategory .categoryMascot,
+.humanBodyCategory .categoryMascot,
+.historyCategory .categoryMascot,
+.weirdCategory .categoryMascot {
+    width: 68px;
+    height: 68px;
+    top: 7px;
+    object-fit: contain;
+}
+/* ============================= */
+/* DOMAIN OVERLAYS               */
+/* ============================= */
+
+.domainOverlay {
+    position: fixed;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+
+    z-index: 0;
+}
+
+.domainOverlay.show {
+    opacity: 0.72;
+}
+
+/* keep actual website above decorations */
+
+main,
+.developerSection {
+    position: relative;
+    z-index: 1;
+}
+/* DEV NOTE MESSAGE ENDING */
+
+.birthdayEnding {
+    margin-top: 32px !important;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 18px;
+
+    color: white;
+
+    text-shadow:
+        2px 2px 0 #b026ff;
+}
+
+.emotionalQuota {
+    margin-top: 30px !important;
+
+    text-align: center;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #39ff14;
+}
